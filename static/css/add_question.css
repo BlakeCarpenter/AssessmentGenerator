@@ -1,0 +1,12 @@
+.question_block table{
+    width: 100%
+}
+
+.question_block #question_body{
+    min-width: 100%;
+    min-height: 200px
+}
+
+.question_block table input{
+    width: 100%
+}

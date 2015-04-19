@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<title>Javascript Testing</title>
+<meta charset="utf-8">
+<style>#debug{float:right;}</style>
+</head>
+<script src="jquery-2.1.3.min.js"></script>
+<script src="edisco.js"></script>
+<div id="debug" style="width:400px;">This is the debug block.</div>
+<div class="question_block">
+    <div id="question_instructions"></div>
+	<select id="question_type">
+	    <option value='' disabled selected>Question Type</option>
+	    <option value="M">Multiple Choice</option>
+	    <option value="X">Matching</option>
+	</select>
+	<br>
+	<textarea id="question_body"></textarea>
+	<div id="question_form"></div>
+</div>
+
+<select name="sel_subj" size="10" multiple="" id="subj_id">
+    <option value="ACC">Accounting
+    </option><option value="ANT">Anthropology
+    </option><option value="A S">Appalachian Studies
+    </option><option value="ADM">Apparel Design &amp; Merchandising
+    </option><option value="AMU">Applied Music
+    </option><option value="ARB">Arabic
+    </option><option value="ART">Art
+    </option><option value="AST">Astronomy
+    </option><option value="A T">Athletic Training
+    </option><option value="BIO">Biology
+    </option><option value="BUS">Business
+    </option><option value="B E">Business Education
+    </option><option value="CHE">Chemistry
+    </option><option value="CHN">Chinese
+    </option><option value="PHO">Commercial Photography
+    </option><option value="COM">Communication
+    </option><option value="CSD">Communication Sci &amp; Disorders
+    </option><option value="CIS">Computer Information Systems
+    </option><option value="C S">Computer Science
+    </option><option value="C J">Criminal Justice
+    </option><option value="C I">Curriculum and Instruction
+    </option><option value="DAN">Dance
+    </option><option value="ECO">Economics
+    </option><option value="FDN">Educational Foundations
+    </option><option value="EDL">Educational Leadership
+    </option><option value="ENG">English
+    </option><option value="ENT">Entrepreneurship
+    </option><option value="ENV">Environmental Science
+    </option><option value="E S">Exercise Science
+    </option><option value="FCS">Family and Consumer Sciences
+    </option><option value="FER">Fermentation Sciences
+    </option><option value="FIN">Finance, Banking and Insurance
+    </option><option value="FRE">French
+    </option><option value="GWS">Gender, Women's &amp; Sexuality St
+    </option><option value="G S">General Science
+    </option><option value="GHY">Geography
+    </option><option value="GLY">Geology
+    </option><option value="GER">German
+    </option><option value="GLS">Global Studies
+    </option><option value="GRA">Graphic Arts and Imaging Tech
+    </option><option value="HCM">Health Care Management
+    </option><option value="HED">Health Education
+    </option><option value="H P">Health Promotion
+    </option><option value="HPE">Health and Physicial Education
+    </option><option value="H E">Higher Education
+    </option><option value="HIS">History
+    </option><option value="HON">Honors
+    </option><option value="HOS">Hospitality Management
+    </option><option value="HPC">Human Devel and Psych Counsel
+    </option><option value="IND">Industrial Design
+    </option><option value="ITC">Instructional Tech/Computers
+    </option><option value="IDS">Interdisciplinary Studies
+    </option><option value="INT">Interior Design
+    </option><option value="JPN">Japanese
+    </option><option value="LLC">Languages, Literature, Culture
+    </option><option value="LAW">Law
+    </option><option value="LSA">Leadership in School Admin
+    </option><option value="LIB">Library Science
+    </option><option value="MGT">Management
+    </option><option value="MKT">Marketing
+    </option><option value="MBA">Master of Business Administrat
+    </option><option value="MAT">Mathematics
+    </option><option value="MSL">Military Sci and Leadership
+    </option><option value="MUS">Music
+    </option><option value="NUR">Nursing
+    </option><option value="NUT">Nutrition
+    </option><option value="PHL">Philosophy
+    </option><option value="P E">Physical Education
+    </option><option value="PHY">Physics
+    </option><option value="PLN">Planning
+    </option><option value="P S">Political Science
+    </option><option value="POR">Portuguese
+    </option><option value="POM">Production Operations Mgt
+    </option><option value="PSY">Psychology
+    </option><option value="P A">Public Administration
+    </option><option value="R E">Reading
+    </option><option value="R M">Recreation Management
+    </option><option value="REL">Religious Studies
+    </option><option value="RES">Research
+    </option><option value="R C">Rhetoric and Composition
+    </option><option value="RSN">Russian
+    </option><option value="S W">Social Work
+    </option><option value="SOC">Sociology
+    </option><option value="SNH">Spanish
+    </option><option value="SPE">Special Education
+    </option><option value="STT">Statistics
+    </option><option value="SCM">Supply Chain Management
+    </option><option value="S D">Sustainable Development
+    </option><option value="TEC">Technology
+    </option><option value="THR">Theatre
+    </option><option value="UCO">University College
+    </option><option value="U S">University Studies
+    </option><option value="WRC">Watauga Residential College
+    </option></select>
+</html

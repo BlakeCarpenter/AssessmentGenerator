@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title_block %}Assessment Generator{% endblock %}
+{% block body_block %}
+<script src="{% static "js/add_question.js" %}"></script>
+<script src="{% static "js/receive_script.js" %}"></script>
+<link rel="stylesheet" href="{% static "css/add_question.css"%}">
+<div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4 question_block">
+        <div id="question_instructions"></div>
+        <select id="question_type">
+            <option value='' disabled selected>Question Type</option>
+            <option value="M">Multiple Choice</option>
+            <option value="X">Matching</option>
+        </select>
+        <br>
+        <textarea id="question_body"></textarea>
+        <div id="question_form"></div>
+        {% for q in user_questions %}
+            <div class="archive-question">
+                <div class="archive-cell archive-question-body">{{ q.question_text }}</div><div class="archive-cell archive-question-add">+</div>
+                
+            </div>
+            <script>
+                /*Need to amend the first variable to a dynamic number*/
+                edisco_receiveArray.push(new QuestionReceive(0, "{{ q.question_text }}", '{{ q.question_type }}', JSON.parse("{{ q.question_body }}".replace(/&quot;/g, "\""))));
+            </script>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

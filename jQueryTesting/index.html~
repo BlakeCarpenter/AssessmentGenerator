@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<title>Javascript Testing</title>
+<meta charset="utf-8">
+<style>#debug{float:right;}</style>
+</head>
+<script src="jquery-2.1.3.min.js"></script>
+<script src="edisco.js"></script>
+<div id="debug">This is the debug block.</div>
+<div class="question_block">
+<select id="question_type">
+    <option value='' disabled selected>Question Type</option>
+    <option value="M">Multiple Choice</option>
+    <option value="X">Matching</option>
+</select>
+<br>
+<textarea id="question_body"></textarea>
+<div id="question_form"></div>
+</div>
+</html

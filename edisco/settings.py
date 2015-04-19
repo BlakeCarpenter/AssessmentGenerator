@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
     'assessmentgenerator',
+    'registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -87,6 +88,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+#Admin
+REGISTRATION_OPEN = True
+ACCOUNT_ACTIVATION_DAYS = 2
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/gen/dashboard/'
+LOGIN_URL = '/accounts/login/'
+
 #Templates
 
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
@@ -102,4 +110,4 @@ STATICFILES_DIRS = (
 )
 
 #Flat Pages Settings
-SITE_ID = 1
+SITE_ID = 3

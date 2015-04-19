@@ -1,0 +1,21 @@
+//Question Object
+
+function QuestionReceive(question_text, question_type, question_body){
+    this.question_text = question_text;
+    this.question_type = question_type;
+    this.question_body = question_body;
+}
+
+QuestionReceive.prototype = {
+    getQuestionText: function(){
+        return this.question_text;
+    },
+
+    getQuestionType: function(){
+        return this.question_type;
+    },
+
+    getQuestionBody: function(){
+        return this.question_body;
+    }
+};

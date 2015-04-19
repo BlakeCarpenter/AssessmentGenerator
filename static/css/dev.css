@@ -1,0 +1,40 @@
+body.dev{
+    background-color: yellow;
+}
+
+body.dev .col-md-1{
+    background-color: purple;
+}
+body.dev .col-md-2{
+    background-color: red;
+}
+body.dev .col-md-3{
+    background-color: blue;
+}
+body.dev .col-md-4{
+    background-color: green;
+}
+body.dev .col-md-5{
+    background-color: pink;
+}
+body.dev .col-md-6{
+    background-color: cyan;
+}
+body.dev .col-md-7{
+    background-color: brown;
+}
+body.dev .col-md-8{
+    background-color: turquoise;
+}
+body.dev .col-md-9{
+    background-color: hotpink;
+}
+body.dev .col-md-10{
+    background-color: chartreuse;
+}
+body.dev .col-md-11{
+    background-color: articblue;
+}
+body.dev .col-md-12{
+    background-color: lime;
+}
