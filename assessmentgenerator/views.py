@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from assessmentgenerator.models import UserProfile, Question
+from reportlab.pdfgen import canvas
 
 # Create your views here.
 
@@ -65,3 +66,15 @@ def add_question(request):
         q.save()
 
     return HttpResponse("Question Added")
+
+@login_required
+def generate_test(request):
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="exam.pdf"'
+
+    p = canvas.Canvas(response)
+    p.drawString(100,100,"Hello world.")
+
+    p.showPage()
+    p.save()
+    return response

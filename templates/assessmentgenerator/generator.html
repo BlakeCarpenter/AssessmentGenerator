@@ -5,8 +5,13 @@
 <script src="{% static "js/add_question.js" %}"></script>
 <script src="{% static "js/receive_script.js" %}"></script>
 <link rel="stylesheet" href="{% static "css/add_question.css"%}">
+<div class="row test-admin">
+    <div class="col-md-4"><label for="test_name">Exam Title</label><input type="text" id="test_name" name="test_name"/></div>
+    <div class="col-md-4"><label for="test_date">Date</label><input type="text" id="test_date" name="test_date"/></div>
+    <div class="col-md-4"><button type="button" class="btn btn-info">Generate Test</button></div>
+</div>
 <div class="row">
-    <div class="col-md-8"></div>
+    <ol class="col-md-8 test_gui_block"></ol>
     <div class="col-md-4 question_block">
         <div id="question_instructions"></div>
         <select id="question_type">
@@ -19,12 +24,14 @@
         <div id="question_form"></div>
         {% for q in user_questions %}
             <div class="archive-question">
-                <div class="archive-cell archive-question-body">{{ q.question_text }}</div><div class="archive-cell archive-question-add">+</div>
+                <div class="archive-cell archive-question-body">{{ q.question_text }}</div><div class="archive-cell archive-question-add current">+</div>
                 
             </div>
             <script>
                 /*Need to amend the first variable to a dynamic number*/
-                edisco_receiveArray.push(new QuestionReceive(0, "{{ q.question_text }}", '{{ q.question_type }}', JSON.parse("{{ q.question_body }}".replace(/&quot;/g, "\""))));
+                edisco_receiveArray.push(new QuestionReceive({{ q.id}} , "{{ q.question_text }}", '{{ q.question_type }}', JSON.parse("{{ q.question_body }}".replace(/&quot;/g, "\"")), $(".current")));
+                $(".current").data("q_object", $(edisco_receiveArray).last()[0]);
+                $(".current").removeClass("current");
             </script>
         {% endfor %}
     </div>
