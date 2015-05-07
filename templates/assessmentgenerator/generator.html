@@ -4,11 +4,16 @@
 {% block body_block %}
 <script src="{% static "js/add_question.js" %}"></script>
 <script src="{% static "js/receive_script.js" %}"></script>
+<script src="{% static "js/jquery.cookie.js" %}"></script>
 <link rel="stylesheet" href="{% static "css/add_question.css"%}">
+<form method="POST" id="test_post" action="/gen/gen_test/">
+    {% csrf_token %}
+<div class="row submission-alert"></div>
 <div class="row test-admin">
-    <div class="col-md-4"><label for="test_name">Exam Title</label><input type="text" id="test_name" name="test_name"/></div>
-    <div class="col-md-4"><label for="test_date">Date</label><input type="text" id="test_date" name="test_date"/></div>
-    <div class="col-md-4"><button type="button" class="btn btn-info">Generate Test</button></div>
+    <div class="col-md-4"><tr><td><label for="test_name">Exam Title</label></td><td><input type="text" id="test_name" name="test_name"/></td></tr></div>
+    <div class="col-md-4"><tr><td><label for="test_date">Date</label></td><td><input type="text" id="test_date" name="test_date"/></td></tr></div>
+    <div class="col-md-4"><input id="test_submit" class="btn btn-info" type="submit" value="Generate Test"/></div>
+    <!--<div class="col-md-4"><button id="test_submit" class="btn btn-info">Generate Test</button></div>-->
 </div>
 <div class="row">
     <ol class="col-md-8 test_gui_block"></ol>
@@ -22,18 +27,21 @@
         <br>
         <textarea id="question_body"></textarea>
         <div id="question_form"></div>
-        {% for q in user_questions %}
-            <div class="archive-question">
-                <div class="archive-cell archive-question-body">{{ q.question_text }}</div><div class="archive-cell archive-question-add current">+</div>
-                
-            </div>
-            <script>
-                /*Need to amend the first variable to a dynamic number*/
-                edisco_receiveArray.push(new QuestionReceive({{ q.id}} , "{{ q.question_text }}", '{{ q.question_type }}', JSON.parse("{{ q.question_body }}".replace(/&quot;/g, "\"")), $(".current")));
-                $(".current").data("q_object", $(edisco_receiveArray).last()[0]);
-                $(".current").removeClass("current");
-            </script>
-        {% endfor %}
+        <div id="question-archive">
+            {% for q in user_questions %}
+                <div class="archive-question">
+                    <div class="archive-cell archive-question-body">{{ q.question_text }}</div><div class="archive-cell archive-question-add current">+</div>
+                    
+                </div>
+                <script>
+                    /*Need to amend the first variable to a dynamic number*/
+                    edisco_receiveArray.push(new QuestionReceive({{ q.id}} , "{{ q.question_text }}", '{{ q.question_type }}', JSON.parse("{{ q.question_body }}".replace(/&quot;/g, "\"")), $(".current")));
+                    $(".current").data("q_object", $(edisco_receiveArray).last()[0]);
+                    $(".current").removeClass("current");
+                </script>
+            {% endfor %}
+        </div>
     </div>
 </div>
+</form>
 {% endblock %}

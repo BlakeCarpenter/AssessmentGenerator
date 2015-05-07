@@ -1,8 +1,3 @@
-/*Test admin*/
-.test-admin{
-    text-align:center;
-}
-
 /*Question Form Styling*/
 .question_block{
     background-color: #F8F8F8;
@@ -20,7 +15,6 @@
 }
 
 #question-archive{
-    pad ding: 5px;
     margin-top: 10px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -59,11 +53,3 @@
     margin-bottom: 10px;
 }
 
-/*Test gui*/
-.gui_question{
-    margin-top: 20px;
-}
-
-.answer-list{
-    list-style-type: lower-alpha;
-}

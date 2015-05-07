@@ -72,7 +72,7 @@ $(document).ready(function(){
                 $("#question-archive").append("<div class=\"archive-question\"><div class=\"archive-cell archive-question-body\">"+submission.text+"</div><div class=\"archive-cell archive-question-add active-add\">+</div></div>");
 
                 $(".active-add").click(function(){
-                    var string = "";
+                    var string;
                     string += "<li class=\"gui_question\"><p>"+submission.text+"</p><ol class=\"answer-list\">";
                     $.each(ret.choices,function(i,v){
                         if(v.correct) string += "<li class=\"answer-correct\">";

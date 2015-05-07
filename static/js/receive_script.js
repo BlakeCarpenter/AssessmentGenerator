@@ -36,8 +36,13 @@ QuestionReceive.prototype = {
       },*/
 };
 
+//ACTION LISTENERS
 $(document).ready(function(){
     edisco_test_send_array = [];
+
+    function csrfSafeMethod(method){
+        return(/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
 
     $.each(edisco_receiveArray, function(i,v){
         v.receive_link.click(function(){
@@ -59,5 +64,49 @@ $(document).ready(function(){
             edisco_test_send_array.push($(this).data("q_object").question_id);
             $(".test_gui_block").append(string);
         });
+    });
+
+    $("#test_submit").click(function(){
+
+        //Build submission
+        var submit = {};
+        submit.test_name = $("#test_name").val();
+        submit.test_date = $("#test_date").val();
+        submit.q_array = JSON.stringify(edisco_test_send_array);
+
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "q_array";
+        input.value = JSON.stringify(edisco_test_send_array);
+        $("#test_post")[0].appendChild(input);
+        $("#test_post")[0].submit();
+
+        //CSRF Stuff
+/*        var csrftoken = $.cookie('csrftoken');
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings){
+                if(!csrfSafeMethod(settings.type) && !this.crossDomain){
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
+        $.post("/gen/gen_test/", submit);
+*/
+
+
+
+        /*    .done(function(data){
+                window.open(data);
+        });*/
+
+
+        //FORM SUBMIT
+        /*
+        var form = document.createElement('form');
+        form.method= 'post';
+        form.action= '/gen/gen_test/';
+        form.target= '_blank';
+        */
     });
 });

@@ -68,7 +68,7 @@ def add_question(request):
         q.question_body = q_body
         q.save()
 
-    return HttpResponse(q.id)
+    return HttpResponse("Question Added")
 
 @login_required
 def generate_test(request):
@@ -84,7 +84,7 @@ def generate_test(request):
         for x in q_array:
             questions.append(Question.objects.get(id=x))
 
-        string = '<!doctype html><html><head><style>.test-name{text-align:center;font-weight:700;text-transform:uppercase}.answer-block,.question-block{list-style-type:lower-alpha}.answer-block li{padding-left:15px}.question-num{width:15px;text-align:left;vertical-align:top}ol{margin-bottom:0px}tr{margin-bottom:0px}p{margin:0px;padding:0px}@page {@frame { margin:2.5cm}</style></head><body><div class="test-date">'+test_date+'</div><div class="test-name">'+test_name+'</div><table>'
+        string = '<!doctype html><html><head><style>.test-name{text-align:center;font-weight:700;text-transform:uppercase}.answer-block,.question-block{list-style-type:lower-alpha}.answer-block li{padding-left:15px}.question-num{width:20px;text-align:left;vertical-align:top}ol{margin-bottom:0px}tr{margin-bottom:0px}p{margin:0px;padding:0px}@page {@frame { margin:2.5cm}</style></head><body><div class="test-date">'+test_date+'</div><div class="test-name">'+test_name+'</div><table>'
 
 	i = 0
         for x in questions:
@@ -97,6 +97,7 @@ def generate_test(request):
             string += '</ol></td></tr>'
 
         string += '</table></body></html>'
+        print(string)
 
         #BEGIN RETURNING
         result = StringIO.StringIO()
